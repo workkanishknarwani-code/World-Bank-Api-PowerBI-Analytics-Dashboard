@@ -1,174 +1,169 @@
-Project Overview
+## Project Overview
 
-This project implements an end-to-end data analytics pipeline that extracts global development indicators from the World Bank REST API, processes and structures the data using Python, and builds an interactive Power BI dashboard for multi-country comparative analysis.
+- Built an end-to-end data pipeline using the World Bank REST API  
+- Processed global development indicators using Python  
+- Designed an interactive Power BI dashboard for multi-country comparative analysis  
+- Analyzed economic growth, digital adoption, environmental sustainability, labour, and health indicators  
 
-The dashboard analyzes economic growth, digital adoption, environmental sustainability, labour market indicators, and health metrics across global regions.
+---
 
-Tech Stack
+## Tech Stack
 
-Python
+- Python  
+- Pandas  
+- NumPy  
+- Requests  
+- World Bank REST API  
+- Power BI  
+- DAX  
+- Relational Data Modeling  
 
-Pandas
+---
 
-NumPy
+## Data Pipeline Architecture
 
-Requests
+### 1. API Data Extraction
 
-World Bank REST API
+- Connected to World Bank REST API endpoints  
+- Retrieved country metadata  
+- Extracted grouped indicators across domains:
+  - Economic Activity & Growth  
+  - Labour Market Indicators  
+  - Poverty & Inequality  
+  - Environmental Indicators  
+  - Health Indicators  
+  - Technology Indicators  
+- Implemented pagination handling for multi-page API responses  
+- Applied request throttling to avoid API rate limits  
 
-Power BI
+---
 
-DAX
+### 2. Data Cleaning and Transformation
 
-Relational Data Modeling
+- Normalized nested JSON API responses into tabular structure  
+- Extracted structured fields:
+  - `country_id`  
+  - `country_value`  
+  - `indicator_id`  
+  - `indicator_name`  
+  - `year`  
+  - `value`  
+- Filtered dataset for recent observations (post-2015)  
+- Handled missing and null values  
+- Merged indicator datasets with country metadata  
+- Created domain-specific structured datasets for BI ingestion  
 
-Data Pipeline Architecture
-1. API Data Extraction
+---
 
-Connected to World Bank REST API endpoints.
+### 3. Data Modeling in Power BI
 
-Retrieved country metadata.
+- Built relational schema:
+  - Fact tables (economic, labour, health, environment, technology)  
+  - Country dimension table  
+- Established relationships between fact and dimension tables  
+- Ensured consistent country-level joins across datasets  
+- Implemented aggregation logic for regional analysis  
 
-Extracted grouped indicators across domains:
+---
 
-Economic Activity & Growth
+### 4. DAX Measures Implementation
 
-Labour Market Indicators
+- Created GDP per Capita measure  
+- Created GDP Growth measure  
+- Created Internet Users (%) measure  
+- Built average and regional aggregation calculations  
+- Applied context-aware filtering for dynamic visuals  
 
-Poverty & Inequality
+---
 
-Environmental Indicators
+## Dashboard Features
 
-Health Indicators
+### 1. KPI Cards
 
-Technology Indicators
+- Average GDP per Capita  
+- GDP Growth (%)  
+- Health Expenditure (% of GDP)  
 
-Implemented pagination handling for multi-page API responses.
+---
 
-Added request delay handling to prevent API rate limiting.
+### 2. Comparative Regional Analysis
 
-2. Data Cleaning and Transformation
+- Regional comparison of health expenditure  
+- Multi-indicator trend analysis by year  
+- Dynamic filtering using region slicer  
 
-Normalized nested JSON responses into structured tabular format.
+---
 
-Extracted key fields:
+### 3. Correlation Analysis
 
-country_id
+- Scatter plot: Internet Users vs GDP per Capita  
+- Linear regression trend line  
+- Country-level distribution visualization  
 
-country_value
+---
 
-indicator_id
+### 4. Geographic Visualization
 
-indicator_name
+- Country-level world map  
+- Interactive tooltips displaying multiple development metrics  
+- Region-based filtering  
 
-year
+---
 
-value
+## Key Insights
 
-Filtered dataset for recent observations (post-2015).
+- Positive correlation between internet penetration and GDP per Capita  
+- Regional clustering patterns in development metrics  
+- Variation in economic growth momentum across income groups  
+- Structural disparities observed in technological and environmental indicators  
 
-Merged indicator datasets with country metadata.
+---
 
-Generated domain-specific structured datasets for BI ingestion.
+## Repository Structure
 
-3. Power BI Data Modeling
 
-Built relational schema:
-
-Fact tables (economic, labour, health, environment, technology)
-
-Country dimension table
-
-Created DAX measures for:
-
-GDP per Capita
-
-GDP Growth
-
-Internet Users (%)
-
-Implemented dynamic filtering by region and year.
-
-Applied clean dashboard design principles with dark theme styling.
-
-Dashboard Features
-KPI Metrics
-
-Average GDP per Capita
-
-GDP Growth (%)
-
-Health Expenditure (% of GDP)
-
-Comparative Analysis
-
-Regional comparison of development indicators
-
-Multi-indicator trend analysis by year
-
-Correlation Analysis
-
-Scatter plot: Internet Users vs GDP per Capita
-
-Linear regression trend line
-
-Geographic Visualization
-
-World map showing country-level development metrics
-
-Multi-metric tooltips
-
-Interactive Controls
-
-Region filter
-
-Year filter
-
-Key Insights
-
-Strong positive correlation between digital adoption and economic prosperity.
-
-Regional clustering patterns in economic and technological indicators.
-
-Noticeable variation in growth momentum across income levels.
-
-Structural disparities observed in environmental and development metrics.
-
-Repository Structure
 world-bank-api-powerbi-analytics-dashboard/
 │
 ├── World_Bank_Dashboard.pbix
 ├── project3.py
 ├── data/
 ├── images/
-│   └── dashboard_preview.png
+│ └── dashboard_preview.png
 └── README.md
-How to Run
-Python Data Pipeline
 
-Install dependencies:
+
+---
+
+## How to Run
+
+### Python Data Pipeline
+
+1. Install dependencies:
 
 pip install pandas numpy requests
 
-Run the script:
+2. Run the script:
 
 python project3.py
-Power BI Dashboard
 
-Open the .pbix file
 
-Refresh data connections
+---
 
-Interact using region and year filters
+### Power BI Dashboard
 
-Project Highlights
+1. Open the `.pbix` file  
+2. Refresh data connections  
+3. Interact using region and year filters  
 
-Built a scalable API-driven data ingestion workflow
+---
 
-Applied structured data modeling principles
+## Project Highlights
 
-Designed an interactive analytics dashboard
-
-Implemented DAX-based analytical measures
-
-Integrated multi-domain global development indicators
+- Built a scalable API-driven data ingestion workflow  
+- Applied structured relational data modeling principles  
+- Designed an interactive analytics dashboard in Power BI  
+- Implemented DAX-based analytical measures  
+- Integrated multi-domain global development indicators
+- Designed an interactive analytics dashboard in Power BI
+- Implemented DAX-based analytical measures
+- Integrated multi-domain global development indicators
