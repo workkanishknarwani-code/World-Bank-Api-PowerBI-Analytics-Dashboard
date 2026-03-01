@@ -1,4 +1,4 @@
-![Dashboard Preview](dashboard_preview.jpg)
+![Dashboard Preview](dashboard_preview.png.jpg)
 
 ## Project Overview
 
