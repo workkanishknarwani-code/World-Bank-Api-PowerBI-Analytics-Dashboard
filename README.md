@@ -1,3 +1,5 @@
+![Dashboard Preview](dashboard_preview.png)
+
 ## Project Overview
 
 - Built an end-to-end data pipeline using the World Bank REST API  
